@@ -1,0 +1,329 @@
+.footer {
+    padding: 30px 0;
+
+    @include breakpoint(md) {
+        padding: 40px 0;
+    }
+
+    @include breakpoint(xl) {
+        padding: 60px 0;
+    }
+}
+
+.footer__wrap {
+    padding: 32px 18px;
+    background: #EFEDED;
+    border-radius: 20px;
+
+    @include breakpoint(md) {
+        padding: 40px 20px;
+        border-radius: 30px;
+    }
+
+    @include breakpoint(xl) {
+        padding: 60px 30px 50px;
+        border-radius: 40px;
+    }
+
+    @include breakpoint(hd) {
+        padding: 120px 100px 38px;
+        border-radius: 60px;
+    }
+}
+
+.footer__main {
+
+    @include breakpoint(md) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+.footer__main .label-link {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    color: #373737;
+}
+
+.footer__main ul {
+    margin-bottom: 30px;
+
+    @include breakpoint(md) {
+        margin-bottom: 40px;
+    }
+
+    @include breakpoint(xl) {
+        margin-bottom: 0;
+    }
+}
+
+.footer__main ul li ~ li {
+    margin-top: 16px;
+}
+
+.footer__main ul li a {
+    font-size: 16px;
+    line-height: 140%;
+    color: #373737;
+}
+
+.footer__directions {
+
+    @include breakpoint(md) {
+        width: calc(100% / 12 * 5)
+    }
+
+    @include breakpoint(xl) {
+        width: calc(100% / 12  * 3 - 21px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(100% / 11 * 2);
+    }
+}
+
+.footer__services {
+
+    @include breakpoint(md) {
+        width: calc(100% / 12 * 6)
+    }
+
+    @include breakpoint(xl) {
+        width: calc(100% / 12  * 3 - 21px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(100% / 11 * 2);
+    }
+}
+
+.footer__features {
+
+    @include breakpoint(md) {
+        width: calc(100% / 12 * 5)
+    }
+
+    @include breakpoint(xl) {
+        width: calc(100% / 12  * 3 - 21px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(100% / 11 * 2);
+    }
+}
+
+.footer__features ul {
+
+    @include breakpoint(hd) {
+        max-width: 256px;
+    }
+}
+
+.footer__menu {
+
+    @include breakpoint(md) {
+        width: calc(100% / 12 * 6)
+    }
+
+    @include breakpoint(xl) {
+        width: calc(100% / 12  * 3 - 21px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(100% / 11 * 2);
+    }
+}
+
+.footer__contacts {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #B6B6B6;
+
+    @include breakpoint(md) {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    @include breakpoint(xl) {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        display: flex;
+    }
+
+    @include breakpoint(hd) {
+        margin-top: 0;
+        display: block;
+        width: calc(100% / 11 * 2 + 40px);
+        border-bottom: none;
+    }
+}
+
+.footer__contacts-item {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(hd) {
+        align-items: unset;
+    }
+}
+
+.footer__contacts-item ~ .footer__contacts-item {
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 150%;
+    color: #373737;
+
+    @include breakpoint(xl) {
+        margin-top: 0;
+        margin-left: 50px;
+    }
+
+    @include breakpoint(hd) {
+        margin-top: 12px;
+        margin-left: 0;
+    }
+}
+
+.footer__contacts-item-phone {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: #373737;
+}
+
+.footer__contacts-item a,
+.footer__contacts-item p {
+
+    @include breakpoint(hd) {
+        line-height: 40px;
+    }
+}
+
+.footer__contacts-icon {
+    margin-right: 20px;
+    background: #EFEDED;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: -2px -2px 5px rgba(249, 249, 249, 0.83), 2px 2px 7px #DFDFDF;
+}
+
+.footer__contacts-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer__bottom {
+    color: #4D4D4D;
+
+    @include breakpoint(md) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    @include breakpoint(hd) {
+        margin-top: 100px;
+        padding-top: 40px;
+        border-top: 1px solid #B6B6B6;
+    }
+}
+
+.footer__logo {
+    margin-bottom: 16px;
+    width: 195px;
+
+    @include breakpoint(md) {
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(xl) {
+        width: 138px;
+    }
+
+    @include breakpoint(hd) {
+        width: 215px;
+    }
+}
+
+.footer__law {
+
+    @include breakpoint(md) {
+        margin-right: 60px;
+    }
+
+    @include breakpoint(xl) {
+        margin-right: 0;
+        display: flex;
+        justify-content: space-between;
+        width: calc(50% + 22px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(50% - 100px);
+    }
+}
+
+.footer__copyright {
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.footer__policy {
+    margin-top: 6px;
+    font-size: 16px;
+    line-height: 150%;
+
+    @include breakpoint(xl) {
+        margin-top: 0;
+    }
+}
+
+.footer__devs {
+    margin-top: 18px;
+    font-family: 'Raleway', sans-serif;
+
+    @include breakpoint(md) {
+        margin: 30px auto 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    @include breakpoint(xl) {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        width: calc(100% / 12 * 3 + 10px);
+    }
+
+    @include breakpoint(hd) {
+        width: calc(100% / 12 * 3 - 72px);
+    }
+}
+
+.footer__devs a {
+    margin-right: 12px;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #373737;
+}
+
+.footer__devs span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #373737;
+}

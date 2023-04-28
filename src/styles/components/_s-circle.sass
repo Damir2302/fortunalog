@@ -1,0 +1,140 @@
+.s-circle
+    padding-top: 97px
+    padding-bottom: 12px
+    // Переменные используются при расчете ширины в классе .s-circle__shape
+    --padding: 18px
+    --margin: 10px
+    +mq($md)
+        padding-top: 259px
+        padding-bottom: 228px
+        --padding: 30px
+        --margin: 20px
+    +mq($xl)
+        padding-top: 45px
+        padding-bottom: 40px
+        --margin: 15px
+    +mq($hd)
+        padding-top: 93px
+        padding-bottom: 74px
+        --padding: 60px
+        --margin: 40px
+    &__title
+        +fz(16)
+        line-height: 19px
+        color: var(--dark-grey-color)
+        text-align: center
+        text-transform: uppercase
+        margin-bottom: 25px
+        +mq($md)
+            margin-bottom: 60px
+        +mq($xl)
+            margin-bottom: 20px
+        +mq($hd)
+            margin-bottom: 40px
+    &__shape
+        --circle-size: min(304px, calc(100vw - var(--padding) * 2 - var(--margin) * 2))
+        --rotate-angle: 45deg
+        width: var(--circle-size)
+        height: var(--circle-size)
+        //box-shadow: -10px -10px 24px #F7F2F2, 10px 10px 27px #E4E4E4
+        box-shadow: -10px 0 24px #f7f2f2, 10px 0 27px #e4e4e4
+        background-color: var(--grey-coilor)
+        border-radius: 50%
+        margin-inline: auto
+        margin-bottom: 30px
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        place-items: center
+        position: relative
+        transform: rotate(var(--rotate-angle))
+        +mq($md)
+            --circle-size: 395px
+            margin-bottom: 60px
+        +mq($xl)
+            margin-bottom: 30px
+        +mq($hd)
+            --circle-size: 569px
+            margin-bottom: 60px
+        &::before
+            content: ''
+            display: block
+            background-image: url('../images/cross.svg'), url('../images/star.svg')
+            background-repeat: no-repeat
+            background-position: center
+            position: absolute
+            --cross-size: 160px
+            width: var(--cross-size)
+            height: var(--cross-size)
+            transform: rotate(calc(var(--rotate-angle) * -1))
+            z-index: -1
+            +mq($md)
+                --cross-size: 207px
+            +mq($hd)
+                --cross-size: 298px
+    &__item
+        cursor: pointer
+        --inner-padding: 15px
+        --outer-padding: 30px
+        +mq(315px)
+            --inner-padding: 20px
+            --outer-padding: 40px
+        +mq(360px)
+            --inner-padding: 15px
+            --outer-padding: 65px
+        +mq($md)
+            --inner-padding: 30px
+            --outer-padding: 80px
+        +mq($hd)
+            --inner-padding: 40px
+            --outer-padding: 125px
+        &:first-child
+            border-top-left-radius: 100%
+            padding: var(--outer-padding) var(--inner-padding) var(--inner-padding) var(--outer-padding)
+        &:nth-child(2)
+            border-top-right-radius: 100%
+            padding: var(--outer-padding) var(--outer-padding) var(--inner-padding) var(--inner-padding)
+        &:nth-child(3)
+            border-bottom-left-radius: 100%
+            padding: var(--inner-padding) var(--inner-padding) var(--outer-padding) var(--outer-padding)
+        &:last-child
+            border-bottom-right-radius: 100%
+            padding: var(--inner-padding) var(--outer-padding) var(--outer-padding) var(--inner-padding)
+        &:hover
+            svg,
+            path
+                fill: var(--red-color)
+        &-icon
+            transform: rotate(calc(var(--rotate-angle) * -1))
+            svg
+                --icon-size: 58px
+                width: var(--icon-size)
+                height: var(--icon-size)
+                +mq($md)
+                    --icon-size: 76px
+                +mq($hd)
+                    --icon-size: 110px
+            svg,
+            path
+                fill: var(--text-color)
+                transition: .3s
+            &:hover
+                svg,
+                path
+                    fill: var(--red-color)
+    &__btn
+        text-align: center
+        +mqMax($md)
+            .btn + .btn
+                margin-top: 37px
+        &-arrow
+            +mq($md)
+                --btn-size: 48px
+                position: absolute
+                right: 20px
+                top: calc(50% - calc(var(--btn-size) / 2))
+            +mq($hd)
+                --btn-size: 70px
+                right: 40px
+                img
+                    height: 14px

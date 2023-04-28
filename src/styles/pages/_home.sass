@@ -1,0 +1,535 @@
+=circle
+    width: var(--size)
+    height: var(--size)
+    flex: 0 0 var(--size)
+    +flex-column-center
+    border-radius: 50%
+    box-shadow: -6.9375px -6.9375px 16.65px #F7F2F2, 6.9375px 6.9375px 18.7313px #E4E4E4
+    background-color: var(--grey-color)
+    cursor: pointer
+
+.tariff
+    padding-bottom: 40px
+    &__list
+        margin-bottom: 20px
+        +mq($md)
+            margin-bottom: 30px
+        +mq($xl)
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            gap: 30px
+            margin-bottom: 40px
+        +mq($hd)
+            gap: 40px
+            margin-bottom: 60px
+    &__item
+        background-color: var(--grey-color)
+        border-radius: 28px
+        box-shadow: -4.85625px -4.85625px 15.2625px #F2F2F2, 4.85625px 4.85625px 9.7125px #E1E1E1
+        padding: 30px 26px
+        text-align: center
+        display: flex
+        flex-direction: column
+        height: auto
+
+        +mq($md)
+            padding: 30px
+        +mq($hd)
+            padding: 40px 30px
+        &-icon
+            margin-bottom: 15px
+            min-height: 56px
+            +mq($md)
+                align-self: center
+                width: 56px
+                height: 56px
+            +mq($xl)
+                margin-bottom: 20px
+            +mq($hd)
+                width: 80px
+                height: 80px
+            & img
+                height: 100%
+        &-name
+            +fz(16)
+            line-height: 140%
+            margin-bottom: 15px
+            text-transform: uppercase
+            +mq($hd)
+                +fz(20)
+                line-height: 140%
+        &-features
+            margin-bottom: 28px
+            text-align: left
+            +mq($md)
+                margin-bottom: 40px
+            +mq($xl)
+                margin-bottom: 28px
+            +mq($hd)
+                margin-bottom: 52px
+        &-feature
+            +fz(16)
+            line-height: 140%
+            color: #373737
+            display: flex
+            +mq($hd)
+                +fz(20)
+                line-height: 150%
+            & + &
+                margin-top: 12px
+                +mq($hd)
+                    margin-top: 16px
+            &::before
+                content: ''
+                margin-top: 6px
+                display: block
+                --dot-size: 8px
+                flex-shrink: 0
+                width: var( --dot-size)
+                height: var( --dot-size)
+                border-radius: 50%
+                background-color: var(--red-color)
+                margin-right: 8px
+                box-shadow: 0 2.775px 2.775px rgba(198, 25, 32, 0.28)
+        &-btn
+            margin-inline: auto
+            margin-top: auto
+            max-width: 195px
+            width: 100%
+            +mq($md)
+                max-width: 210px
+            +mq($hd)
+                max-width: 225px
+
+    &__link
+        margin-top: 20px
+        margin-left: 50%
+        font-size: 14px
+        line-height: 150%
+        text-transform: uppercase
+        color: #4D4D4D
+        transform: translateX(-50%)
+    &__slider
+        +mqMax($xl)
+            overflow-x: hidden
+            padding: 10px
+            margin: -10px
+        +mq($hd)
+            margin-top: 88px
+        &-pagination
+            position: static
+.services
+    &__list
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-rows: repeat(2, 1fr)
+        gap: 12px 0
+        place-items: center
+        margin-bottom: 20px
+        margin-inline: auto
+        +mq($md)
+            gap: 24px 0
+            margin-bottom: 30px
+            max-width: 585px
+        +mq($xl)
+            grid-template-columns: repeat(4, 1fr)
+            grid-template-rows: unset
+            gap: 0
+            margin-bottom: 40px
+            max-width: 1110px
+        +mq($hd)
+            margin-bottom: 60px
+            max-width: 1600px
+    &__item
+        text-align: center
+        --size: 167px
+        +circle
+        z-index: 1
+        &:nth-child(2n)
+            --translate: -30px
+            transform: translateX(var( --translate))
+            z-index: 0
+            +mq($md)
+                --translate: -57px
+        +mq($md)
+            --size: 320px
+        +mq($xl)
+            z-index: 3
+            @for $i from 1 to 4
+                &:nth-child(#{$i + 1})
+                    transform: translateX(#{-57px * $i})
+                    z-index: 3 - $i
+        +mq($hd)
+            --size: min(24vw, 460px)
+            @for $i from 1 to 4
+                &:nth-child(#{$i + 1})
+                    transform: translateX(#{-80px * $i})
+        &:hover
+            svg
+                fill: var(--red-color)
+        &-icon
+            --icon-size: 50px
+            margin-bottom: 10px
+            +mq($md)
+                --icon-size: 83px
+                margin-bottom: 20px
+            +mq($hd)
+                --icon-size: 120px
+            svg
+                width: var(--icon-size)
+                height: var(--icon-size)
+                fill: var(--text-color)
+                transition: .3s
+        &-name
+            +fz(12)
+            line-height: 140%
+            text-transform: uppercase
+            color: #373737
+            +mq($md)
+                +fz(16)
+            +mq($hd)
+                +fz(20)
+    &__btn
+        text-align: center
+
+.stage
+    &__slider
+        +mqMax($xl)
+            overflow-x: hidden
+            padding: 10px
+            margin: -10px
+        +mq($md)
+            margin-top: 60px
+        +mq($xl)
+            margin-top: 48px
+        &-pagination
+            margin-top: 20px
+            position: static
+            +mq($md)
+                margin-top: 30px
+    &__item
+        text-align: center
+        --size: 240px
+        +circle
+        justify-content: flex-start
+        padding: 53px 38px
+        transform: translateX(var(--translate))
+        box-shadow: 0.694427px 0px 2.77771px rgba(212, 212, 212, 0.25), -5.55542px -3.47214px 9.72198px #F7F2F2, -3.47214px 3.47214px 9.02755px #E2E2E2
+        z-index: 20
+        @for $i from 1 to 8
+            &:nth-child(#{$i + 1})
+                z-index: #{20 - $i}
+        +mq($md)
+            --size: 240px
+        +mq($xl)
+            --size: min(23.5vw, 282px)
+            padding: 96px 83px
+            z-index: 20
+            transition: .6s
+            @for $i from 1 to 8
+                &:nth-child(#{$i + 1})
+                    transform: translateX(#{-164px * $i})
+                    z-index: #{20 - $i}
+                    &:hover
+                        transform: translateX(#{-164px * ($i - 0.65)})
+                        //z-index: 30
+        +mq($hd)
+            --size: min(23vw, 407px)
+            padding: 124px 57px 147px
+            @for $i from 1 to 8
+                &:nth-child(#{$i + 1})
+                    transform: translateX(min(#{35.2vw * $i}, #{-237px * $i}))
+                    &:hover
+                        transform: translateX(min(#{35.2vw * ($i - 0.65)}, #{-237px * ($i - 0.65)}))
+        +mqMax($xl)
+            flex-basis: unset
+        &-number
+            +fz(14)
+            line-height: 17px
+            position: absolute
+            //margin-bottom: 12px
+            top: 24px
+            +mq($xl)
+                //margin-bottom: 60px
+                top: 20px
+            +mq($hd)
+                //margin-bottom: 80px
+                top: 28px
+        &-icon
+            --icon-size: 56px
+            flex-shrink: 0
+            width: 56px
+            height: 56px
+            margin-bottom: 12px
+            +mq($hd)
+                --icon-size: 80px
+                width: 80px
+                height: 80px
+                margin-bottom: 28px
+            svg
+                width: var(--icon-size)
+                height: var(--icon-size)
+                fill: var(--text-color)
+                transition: .3s
+        &-name
+            font-size: 16px
+            line-height: 140%
+            color: #373737
+            min-height: 68px
+            overflow: hidden
+            +mqMax($xl)
+                max-width: 165px
+            +mq($hd)
+                min-height: 84px
+                font-size: 20px
+        &:hover
+            svg
+                fill: var(--red-color)
+    &__btn
+        margin-top: 20px
+        text-align: center
+        +mq($md)
+            margin-top: 30px
+        +mq($xl)
+            margin-top: 40px
+.testimonials
+    &__list
+        display: grid
+        grid-template-columns: 1fr
+        gap: 20px
+        margin-bottom: 20px
+        +mq($md)
+            grid-template-columns: repeat(3, 1fr)
+            gap: 30px 26px
+            margin-bottom: 30px
+        +mq($xl)
+            grid-template-columns: repeat(4, 1fr)
+            gap: 40px 27px
+            margin-bottom: 40px
+        +mq($hd)
+            gap: 40px
+            margin-bottom: 60px
+    &__item
+        text-align: center
+        cursor: pointer
+        justify-self: start
+        +mqMax($md)
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            gap: 20px
+        &:hover
+          .testimonials__icon svg
+              fill: var(--red-color)
+    &__icon
+        --icon-size: 88px
+        width: var(--icon-size)
+        height: var(--icon-size)
+        margin-inline: auto
+        background: #EFEDED
+        box-shadow: -6.96361px -6.96361px 16.7127px #F7F2F2, 6.96361px 6.96361px 18.8018px #E4E4E4
+        border-radius: 50%
+        +flex
+        +mqMax($md)
+            flex: 0 0 var(--icon-size)
+        +mq($md)
+            --icon-size: 112px
+            margin-bottom: 20px
+        +mq($hd)
+            --icon-size: 160px
+            margin-bottom: 28px
+        svg
+            width: 40px
+            height: 40px
+            fill: var(--text-color)
+            transition: .3s
+            +mq($hd)
+                width: 60px
+                height: 60px
+    &__name
+        +fz(16)
+        line-height: 140%
+        color: #373737
+        +mqMax($md)
+            text-align: left
+        +mq($hd)
+            +fz(20)
+    &__btn
+        text-align: center
+.search-block
+    margin-bottom: 20px
+    +mq($xl)
+        margin-bottom: 30px
+        max-width: calc(100% / 12 * 8)
+        margin-inline: auto
+    +mq($hd)
+        margin-bottom: 40px
+    &__text
+        +fz(12)
+        line-height: 140%
+        color: #373737
+        text-transform: uppercase
+        +mqMax($md)
+            margin-bottom: 9px
+        +mq($md)
+            +fz(16)
+    +mq($md)
+        form
+            display: flex
+            align-items: center
+            gap: 20px
+            +mq($xl)
+                gap: 30px
+    &__field
+        position: relative
+        +mq($md)
+            flex: 1 0 auto
+        input[type='text']
+            background: #EFEDED
+            outline: 1px solid #4D4D4D
+            border-radius: 75px
+            padding: 16px
+            width: 100%
+            border: unset
+            +fz(14)
+            line-height: 140%
+            color: #373737
+            +mq($md)
+                padding: 16px 20px
+            +mq($xl)
+                padding: 20px
+            &:focus, &:active
+                outline: 1px solid #4D4D4D
+            &::placeholder
+                +fz(14)
+                line-height: 140%
+                color: #373737
+        *[type='submit']
+            --icon-size: 28px
+            position: absolute
+            right: 16px
+            top: calc(50% - var(--icon-size) / 2)
+            width: var(--icon-size)
+            height: var(--icon-size)
+            +bg('../images/icon_search.svg', center, var(--icon-size))
+            +fz(0)
+            outline-color: transparent
+            padding: 10px 0
+            border: unset
+            +mq($xl)
+                right: 20px
+
+.map__box
+    border-radius: 16px
+    overflow: hidden
+    +mq($xl)
+        border-radius: 40px
+
+.country
+    &__slider
+        +mqMax($md)
+            overflow-x: hidden
+    &__list
+        //max-height: 432px
+        margin-bottom: 20px
+        +mq($md)
+            display: grid
+            grid-template-columns: repeat(5, 1fr)
+            gap: 24px 18px
+            place-items: center
+        +mq($xl)
+            grid-template-columns: repeat(8, 1fr)
+            gap: 30px 26px
+        +mq($xl)
+            gap: 40px 48px
+    &__icon
+        background: #EFEDED
+        box-shadow: -9.75758px -9.75758px 23.4182px #F7F2F2, 9.75758px 9.75758px 26.3455px #E4E4E4
+        padding: 14px
+        margin-bottom: 4px
+        border-radius: 50%
+        width: 80px
+        height: 80px
+        +mq($md)
+            padding: 17px
+            margin-bottom: 8px
+            width: 100px
+            height: 100px
+        +mq($xl)
+            width: 124px
+            height: 124px
+            padding: 21px
+    &__name
+        +fz(14)
+        line-height: 140%
+        color: #373737
+        text-align: center
+        +mq($md)
+            +fz(16)
+.supplies
+    &__grid
+        +mq($md)
+            display: grid
+            grid-template-columns: 5fr 7fr
+            gap: 30px 20px
+        +mq($xl)
+            grid-template-columns: 6fr 6fr
+            gap: 32px 30px
+        +mq($hd)
+            grid-template-columns: 5fr 7fr
+            gap: 40px
+    &__image
+        border-radius: 16px
+        overflow: hidden
+        img
+            width: 100%
+            height: 100%
+            object-fit: contain
+        +mq($md)
+            grid-row: 1 / 3
+            align-self: start
+        +mq($xl)
+            border-radius: 20px
+        +mq($hd)
+            border-radius: 40px
+    &__text
+        margin-top: 16px
+    &__btn
+        margin-top: 24px
+        text-align: center
+        +mq($md)
+            align-self: end
+.specialist
+    &__image
+        border-radius: 16px
+        max-width: 420px
+        overflow: hidden
+    &__info
+        margin-top: 16px
+        &-name
+            font-size: 20px
+            line-height: 24px
+            text-transform: uppercase
+        &-activity
+            margin: 6px 0 20px
+            font-size: 16px
+            line-height: 150%
+            color: #9D9D9D
+        &-text
+            max-height: 352px
+            overflow-y: scroll
+            &::-webkit-scrollbar 
+                width: 6px
+                height: 35px
+            &::-webkit-scrollbar-thumb 
+                background: #95151B
+                border-radius: 8px
+            &::-webkit-scrollbar-track 
+                background: #EFEDED
+                box-shadow: -2px -2px 5px rgba(251, 251, 251, 0.83), 2px 2px 6px #E2E2E2
+                border-radius: 18px
+
+    &__btn
+        margin-top: 30px
+        & a
+            padding: 12px 27px

@@ -1,0 +1,176 @@
+// Use in unify-parent mixin
+@use "sass:selector"
+
+//@mixin - alternate declare mixin's
+
+=mq($point)
+    @if $point == xs
+        @media (min-width: $xs)
+            @content
+
+    @else if $point == sm
+        @media (min-width: $sm)
+            @content
+
+    @else if $point == md
+        @media (min-width: $md)
+            @content
+
+    @else if $point == lg
+        @media (min-width: $lg)
+            @content
+
+    @else if $point == xl
+        @media (min-width: $xl)
+            @content
+
+    @else if $point == hd
+        @media (min-width: $hd)
+            @content
+
+    @else
+        @media (min-width: $point)
+            @content
+
+=mqMax($point)
+    @if $point == xs
+        @media (max-width: $xs - 1px)
+            @content
+
+    @else if $point == sm
+        @media (max-width: $sm - 1px)
+            @content
+
+    @else if $point == md
+        @media (max-width: $md - 1px)
+            @content
+
+    @else if $point == lg
+        @media (max-width: $lg - 1px)
+            @content
+
+    @else if $point == xl
+        @media (max-width: $xl - 1px)
+            @content
+
+    @else if $point == hd
+        @media (max-width: $hd - 1px)
+            @content
+    @else
+        @media (max-width: $point - 1px)
+            @content
+
+=flex()
+    display: flex
+    align-items: center
+    justify-content: center
+
+=inline-flex()
+    display: inline-flex
+    align-items: center
+    justify-content: center
+
+=flex-column()
+    display: flex
+    flex-direction: column
+
+=flex-column-center()
+    @include flex
+    flex-direction: column
+
+=bg($image, $position: center, $size: cover)
+    background-image: url($image)
+    background-position: $position
+    background-size: $size
+    background-repeat: no-repeat
+
+// Перевод px в rem
+=fz($sizeValue: 16)
+    font-size: $sizeValue + px
+    font-size: calc($sizeValue / 16) + rem
+
+// При изменении размера родительского блока, блок будет сохраняя свои пропорции
+// Например, .block +ratio(16,9)
+=ratio($width, $height)
+    position: relative
+    overflow: hidden
+    padding-top: ($height / $width) * 100%
+    > iframe
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        border: 0
+
+
+//triangle
+=arr($width, $height, $bg, $direction)
+    width: 0px
+    height: 0px
+    border-style: solid
+    @if $direction == t
+        border-width: 0 calc($width / 2) + px $height + px calc($width / 2) + px
+        border-color: transparent transparent $bg transparent
+    @if $direction == r
+        border-width: calc($height / 2) + px 0 calc($height / 2) + px $width + px
+        border-color: transparent transparent transparent $bg
+    @if $direction == b
+        border-width: $height + px calc($width / 2) + px 0 calc($width / 2) + px
+        border-color: $bg transparent transparent transparent
+    @if $direction == l
+        border-width: calc($height / 2) + px $width + px calc($height / 2) + px 0
+        border-color: transparent $bg transparent transparent
+    @if $direction == tl
+        border-width: $height + px $width + px 0 0
+        border-color: $bg transparent transparent transparent
+    @if $direction == tr
+        border-width: 0 $width + px $height + px 0
+        border-color: transparent $bg transparent transparent
+    @if $direction == br
+        border-width: 0 0 $height + px $width + px
+        border-color: transparent transparent $bg transparent
+    @if $direction == bl
+        border-width: $width + px 0 0 $height + px
+        border-color: transparent transparent transparent $bg
+// example
+// +arr(500,50, #000, l)
+// +arr(500,50, #000, bl)
+
+
+// Прозрачная стрелка
+=arrow($size, $color, $rotate: 45deg)
+    content: ''
+    display: block
+    width: $size
+    height: $size
+    border-bottom: 1px solid $color
+    border-right: 1px solid $color
+    transform: rotate($rotate)
+
+// font-family
+=font($alias, $name, $weight: normal, $style: normal)
+    @font-face
+        font-family: $alias
+        src: url("../fonts/" + $name + ".woff2") format("woff2"), url("../fonts/" + $name + ".woff") format("woff")
+        font-weight: $weight
+        font-style: $style
+// to use:
+//+font(black, cytiapro-black-webfont)
+
+=lts($value)
+    letter-spacing: $value
+
+=unify-parent($child)
+    @at-root #{selector.unify(&, $child)}
+        @content
+
+=textLimit($val)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: $val
+    line-clamp: $val
+    -webkit-box-orient: vertical

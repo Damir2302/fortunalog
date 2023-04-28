@@ -1,0 +1,29 @@
+block header
+
+    header.js-header(data-state='closed')
+        .header
+            a.header__logo(href='/')
+                img(src='./images/logo.svg' alt='Logo')
+            
+            .header__burger
+                button.menu-toggle(aria-label='Menu' aria-controls='primary-navigation' aria-expanded='false')
+                    span.visually-hidden Menu
+                    .k_burger(aria-hidden='true')
+            
+            nav.header__menu
+                ul#primary-navigation.header__menu-list.js-header-nav-menu
+                    li.header__menu-item
+                        a(href='#') О компании
+                    li.header__menu-item
+                        a(href='#') Услуги
+                    li.header__menu-item
+                        a(href='#') Типы перевозок
+                    li.header__menu-item
+                        a(href='#') Направления
+                    li.header__menu-item
+                        a(href='#') Для физических лиц
+                    li.header__menu-item
+                        a(href='#') Для юридических лиц
+                .header__contacts
+                    .header__contact WhatsApp Business channel
+                    .header__contact Вход в личный кабинет

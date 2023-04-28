@@ -1,0 +1,40 @@
+.menu-toggle
+	--size: 32px
+	background-color: transparent
+	border: none
+	cursor: pointer
+	padding: 0
+	width: var(--size)
+	height: var(--size)
+	transition: .3s
+	+mq($hd)
+		--size: 40px
+	&[aria-expanded="true"]
+		//border-radius: 50%
+		//background-color: var(--white-font-color)
+.k_burger,
+.k_burger::before,
+.k_burger::after
+	--height: 4px
+	--width: 32px
+	content: ""
+	display: block
+	background: var(--red-color)
+	height: var(--height)
+	width: var(--width)
+	border-radius: 17px
+	margin-inline: auto
+	transition: all ease-in-out 500ms
+	+mq($hd)
+		--width: 40px
+
+.k_burger::before
+	transform: translateY(-12px)
+.k_burger::after
+	transform: translateY(8px)
+[aria-expanded="true"] .k_burger
+	transform: rotate(45deg)
+[aria-expanded="true"] .k_burger::before
+	opacity: 0
+[aria-expanded="true"] .k_burger::after
+	transform: translateY(calc(var(--height) * -1)) rotate(-90deg)
